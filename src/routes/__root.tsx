@@ -49,7 +49,7 @@ function RenderNavbarLink({navbarLink}: {navbarLink: NavbarLink}) {
 function RootComponent() {
 
   return (
-    <div className='p-4 flex flex-col gap-2 font-mono'>
+    <div className='p-4 flex flex-col gap-2 font-mono max-w-7xl w-full mx-auto'>
       <div className="md:grid md:grid-cols-3 flex justify-between">
         <Link
           to="/"

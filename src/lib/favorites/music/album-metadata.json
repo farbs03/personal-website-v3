@@ -44,6 +44,176 @@
         "title": "Frou-Frou Foxes in Midsummer Fires",
         "durationMs": 336800
       }
+    ],
+    "colors": [
+      "#352c5b",
+      "#ec170e"
+    ]
+  },
+  "magdalena bay::imaginal disk": {
+    "albumCover": "https://r2.theaudiodb.com/images/media/album/thumb/seugyx1731934036.jpg",
+    "year": 2024,
+    "genre": "Alternative",
+    "songs": [
+      {
+        "title": "She Looked Like Me!",
+        "durationMs": 193186
+      },
+      {
+        "title": "Killing Time",
+        "durationMs": 233546
+      },
+      {
+        "title": "True Blue Interlude",
+        "durationMs": 109226
+      },
+      {
+        "title": "Image",
+        "durationMs": 212866
+      },
+      {
+        "title": "Death & Romance",
+        "durationMs": 314733
+      },
+      {
+        "title": "Fear, Sex",
+        "durationMs": 152053
+      },
+      {
+        "title": "Vampire in the Corner",
+        "durationMs": 202440
+      },
+      {
+        "title": "Watching T.V.",
+        "durationMs": 245413
+      },
+      {
+        "title": "Tunnel Vision",
+        "durationMs": 305520
+      },
+      {
+        "title": "Love Is Everywhere",
+        "durationMs": 194413
+      },
+      {
+        "title": "Feeling DiskInserted?",
+        "durationMs": 58600
+      },
+      {
+        "title": "That's My Floor",
+        "durationMs": 209800
+      },
+      {
+        "title": "Cry for Me",
+        "durationMs": 307266
+      },
+      {
+        "title": "Angel on a Satellite",
+        "durationMs": 243426
+      },
+      {
+        "title": "The Ballad of Matt & Mica",
+        "durationMs": 240000
+      }
+    ],
+    "colors": [
+      "#deb394",
+      "#488bb2"
+    ]
+  },
+  "stevie wonder::songs in the key of life": {
+    "albumCover": "https://r2.theaudiodb.com/images/media/album/thumb/songs-in-the-key-of-life-4f67063fcb712.jpg",
+    "year": 1976,
+    "genre": "R&B",
+    "songs": [
+      {
+        "title": "Love's in Need of Love Today",
+        "durationMs": 425000
+      },
+      {
+        "title": "Have a Talk With God",
+        "durationMs": 162400
+      },
+      {
+        "title": "Village Ghetto Land",
+        "durationMs": 205093
+      },
+      {
+        "title": "Contusion",
+        "durationMs": 225973
+      },
+      {
+        "title": "Sir Duke",
+        "durationMs": 234093
+      },
+      {
+        "title": "I Wish",
+        "durationMs": 252373
+      },
+      {
+        "title": "Knocks Me Off My Feet",
+        "durationMs": 215000
+      },
+      {
+        "title": "Pastime Paradise",
+        "durationMs": 200000
+      },
+      {
+        "title": "Summer Soft",
+        "durationMs": 255000
+      },
+      {
+        "title": "Ordinary Pain",
+        "durationMs": 382000
+      },
+      {
+        "title": "Isn't She Lovely",
+        "durationMs": 393000
+      },
+      {
+        "title": "Joy Inside My Tears",
+        "durationMs": 389000
+      },
+      {
+        "title": "Black Man",
+        "durationMs": 509000
+      },
+      {
+        "title": "Ngiculela - Es Una Historia / I Am Singing",
+        "durationMs": 228000
+      },
+      {
+        "title": "If It's Magic",
+        "durationMs": 191000
+      },
+      {
+        "title": "As",
+        "durationMs": 427000
+      },
+      {
+        "title": "Another Star",
+        "durationMs": 499000
+      },
+      {
+        "title": "Saturn",
+        "durationMs": 294000
+      },
+      {
+        "title": "Ebony Eyes",
+        "durationMs": 250000
+      },
+      {
+        "title": "All Day Sucker",
+        "durationMs": 306000
+      },
+      {
+        "title": "Easy Goin' Evening (My Mama's Call)",
+        "durationMs": 238000
+      }
+    ],
+    "colors": [
+      "#781708",
+      "#e47916"
     ]
   }
 }

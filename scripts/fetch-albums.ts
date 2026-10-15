@@ -1,6 +1,7 @@
 import type { AlbumEntry, AlbumMetadata, AlbumMetadataFile } from "../src/types/favorites/music/music-types"
 import { albumList } from "../src/lib/favorites/music/album-list"
 import { albumKey } from "../src/lib/favorites/music/album-key"
+import { extractColors } from "./extract-colors"
 
 
 import { writeFile } from "node:fs/promises"
@@ -14,7 +15,7 @@ const DELAY_MS = 1500 // MusicBrainz allows 1 req/s
 
 const METADATA_PATH = new URL( "../src/lib/favorites/music/album-metadata.json", import.meta.url)
 import albumMetadataRaw from "../src/lib/favorites/music/album-metadata.json"
-const albumMetadata = albumMetadataRaw as AlbumMetadataFile
+const albumMetadata = albumMetadataRaw as unknown as AlbumMetadataFile // JSON infers colors as string[], not a pair
 
 // Raw TheAudioDB album shape (only the fields we use). Numbers come back as strings.
 type AudioDbAlbum = {
@@ -97,28 +98,41 @@ export async function fetchAlbum(entry: AlbumEntry): Promise<AlbumMetadata | nul
     if (!album) return null
 
     const songs = album.strMusicBrainzID ? await fetchTracklist(album.strMusicBrainzID) : []
+    const colors = album.strAlbumThumb ? await extractColors(album.strAlbumThumb) : undefined
 
     return {
         albumCover: album.strAlbumThumb ?? "",
         year: Number(album.intYearReleased ?? 0),
         genre: album.strGenre ?? "",
         songs,
+        colors,
     }
 }
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
-export async function fetchAllAlbums({force = false} = {}) {
+// force: refetch everything. recolor: recompute cover colors for cached albums (without refetching them).
+export async function fetchAllAlbums({force = false, recolor = false} = {}) {
     // Start from what's already cached so unchanged albums aren't refetched
     const result: AlbumMetadataFile = force ? {} : { ...albumMetadata }
-    let fetched = 0, skipped = 0
+    let fetched = 0, skipped = 0, recolored = 0
     const missed: string[] = []
 
     for (const entry of albumList) {
         const key = albumKey(entry)
         const label = `${entry.artist} – ${entry.title}`
 
-        if (result[key]) {
+        const cached = result[key]
+        if (cached) {
+            // Backfill colors for albums cached before color extraction existed (only hits the image host, no delay needed)
+            if ((recolor || !cached.colors) && cached.albumCover) {
+                const colors = await extractColors(cached.albumCover)
+                if (colors) {
+                    result[key] = { ...cached, colors }
+                    recolored++
+                    console.log(`Recolored - ${label}: ${colors.join(" -> ")}`)
+                }
+            }
             skipped++
             continue
         }
@@ -156,11 +170,14 @@ export async function fetchAllAlbums({force = false} = {}) {
 
     // TODO: print a summary, e.g. `${fetched} fetched, ${skipped} cached, ${missed.length} missed`
     // and list each missed album
-    console.log(`Summary: ${fetched} fetched, ${skipped} cached, ${missed.length} missed`)
+    console.log(`Summary: ${fetched} fetched, ${skipped} cached (${recolored} recolored), ${missed.length} missed`)
     console.log("Missed:")
     for (const key of missed) {
         console.log(`- ${key}`)
     }
 }
 
-fetchAllAlbums({ force: process.argv.includes("--force") })
+fetchAllAlbums({
+    force: process.argv.includes("--force"),
+    recolor: process.argv.includes("--colors"),
+})

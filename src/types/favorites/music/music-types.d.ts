@@ -6,7 +6,7 @@ export type AlbumEntry = {
     listens?: number,
     songTags?: Record<string, SpecialTag[]>,
     apiId?: string, // pins the exact release if a search guesses wrong
-    colors?: [string, string], // hand-picked from the album cover, used for the rating star gradient
+    colors?: [string, string], // hand-picked override for the rating star gradient (otherwise uses metadata.colors)
 }
 
 export type ReviewInfo = {
@@ -15,7 +15,7 @@ export type ReviewInfo = {
     dateReviewed: Date,
 }
 
-export type SpecialTag = "favorite" | "underrated" | "most-popular"
+export type SpecialTag = "best" | "favorite" | "underrated" | "most-popular"
 
 // fetched by api
 export type AlbumMetadata = {
@@ -24,6 +24,7 @@ export type AlbumMetadata = {
     year: number,
     genre: string,
     songs:  { title: string, durationMs?: number }[]
+    colors?: [string, string] // extracted from the album cover, used for the rating star gradient
 }
 
 export type AlbumMetadataFile = Record<string, AlbumMetadata> // for loading in the metadata json

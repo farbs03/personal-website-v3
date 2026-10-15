@@ -19,4 +19,30 @@ export const albumList: AlbumEntry[] = [
             dateReviewed: new Date()
         }
     },
+    {
+        title: "Imaginal Disk",
+        artist: "Magdalena Bay",
+        songTags: {
+            "Image": ["favorite", "most-popular"],
+            "Watching T.V.": ["favorite", "underrated"],
+            "Love is Everywhere": ["favorite"],
+            "That's My Floor": ["favorite"],
+            "Cry for Me": ["best", "favorite"],
+            "Angel on a Satellite": ["favorite", "underrated"]
+        },
+        review: {
+            rating: 10,
+            review: "Ethereal",
+            dateReviewed: new Date()
+        }
+    },
+    {
+        title: "Songs in the Key of Life",
+        artist: "Stevie Wonder",
+        review: {
+            rating: 10,
+            review: "Beautiful",
+            dateReviewed: new Date()
+        }
+    }
 ]
