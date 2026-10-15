@@ -6,12 +6,12 @@ export const albumList: AlbumEntry[] = [
         artist: "Cocteau Twins",
         colors: ["#3346b8", "#e8302a"],
         songTags: {
-            "Iceblink Luck": ["favorite"],
-            "Heaven or Las Vegas": ["favorite", "most-popular"],
-            "I Wear Your Ring": ["favorite"],
-            "Fotzepolitic": ["favorite"],
-            "Wolf in the Breast": ["favorite"],
-            "Frou-Frou Foxes in Midsummer Fires": ["favorite"]
+            "Iceblink Luck": ["love"],
+            "Heaven or Las Vegas": ["favorite", "most-popular", "love"],
+            "I Wear Your Ring": ["love"],
+            "Fotzepolitic": ["underrated", "love"],
+            "Wolf in the Breast": ["love"],
+            "Frou-Frou Foxes in Midsummer Fires": ["love"]
         },
         review: {
             rating: 10,
@@ -23,12 +23,12 @@ export const albumList: AlbumEntry[] = [
         title: "Imaginal Disk",
         artist: "Magdalena Bay",
         songTags: {
-            "Image": ["favorite", "most-popular"],
-            "Watching T.V.": ["favorite", "underrated"],
-            "Love is Everywhere": ["favorite"],
-            "That's My Floor": ["favorite"],
-            "Cry for Me": ["best", "favorite"],
-            "Angel on a Satellite": ["favorite", "underrated"]
+            "Image": ["most-popular", "love"],
+            "Watching T.V.": ["underrated", "love"],
+            "Love is Everywhere": ["love"],
+            "That's My Floor": ["love"],
+            "Cry for Me": ["favorite", "love"],
+            "Angel on a Satellite": ["underrated", "love"]
         },
         review: {
             rating: 10,

@@ -5,7 +5,7 @@ export const DummyAlbums: Album[] = [
         title: "Heaven or Las Vegas",
         artist: "Cocteau Twins",
         songTags: {
-            "Cherry-Coloured Funk": ["favorite", "most-popular", "underrated"]
+            "Cherry-Coloured Funk": ["love", "most-popular", "underrated"]
         },
         metadata: {
             albumCover: "https://r2.theaudiodb.com/images/media/album/thumb/u0dk791605684866.jpg",

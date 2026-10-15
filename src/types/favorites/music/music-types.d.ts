@@ -15,7 +15,7 @@ export type ReviewInfo = {
     dateReviewed: Date,
 }
 
-export type SpecialTag = "best" | "favorite" | "underrated" | "most-popular"
+export type SpecialTag = "favorite" | "love" | "underrated" | "most-popular"
 
 // fetched by api
 export type AlbumMetadata = {

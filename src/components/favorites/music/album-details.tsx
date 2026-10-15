@@ -4,21 +4,35 @@ import { MotionConfig, motion, type Variants } from "motion/react";
 import AlbumHeader from "./album-header";
 
 // Order here is the column order in the tracklist's tag grid
-const tagIcons: Record<SpecialTag, { icon: LucideIcon, fill: string, stroke: string }> = {
-    "best": { icon: Trophy, fill: "fill-yellow-400", stroke: "text-yellow-600" },
-    "favorite": { icon: Heart, fill: "fill-red-500", stroke: "text-red-700" },
-    "underrated": { icon: Gem, fill: "fill-cyan-500", stroke: "text-cyan-700" },
-    "most-popular": { icon: Flame, fill: "fill-orange-500", stroke: "text-orange-700" },
+const tagIcons: Record<SpecialTag, { icon: LucideIcon, label: string, fill: string, stroke: string }> = {
+    "favorite": { icon: Trophy, label: "Favorite", fill: "fill-yellow-400", stroke: "text-yellow-600" },
+    "love": { icon: Heart, label: "Love", fill: "fill-red-500", stroke: "text-red-700" },
+    "underrated": { icon: Gem, label: "Underrated", fill: "fill-cyan-500", stroke: "text-cyan-700" },
+    "most-popular": { icon: Flame, label: "Most Popular", fill: "fill-orange-500", stroke: "text-orange-700" },
 }
 
 // fill and stroke are separate layers so filled shapes can't paint over inner lines (e.g. gem facets)
 function TagIcon({ tag }: { tag: SpecialTag }) {
-    const { icon: Icon, fill, stroke } = tagIcons[tag]
+    const { icon: Icon, label, fill, stroke } = tagIcons[tag]
     return (
-        <span className="relative block w-4 h-4" role="img" aria-label={tag}>
+        <span className="relative block w-4 h-4" role="img" aria-label={label}>
             <Icon className={`absolute inset-0 w-4 h-4 stroke-none ${fill}`} aria-hidden />
             <Icon className={`absolute inset-0 w-4 h-4 ${stroke}`} aria-hidden />
         </span>
+    )
+}
+
+// Legend for the tag icons, listing only the tags this album actually uses
+function TagKey({ tags }: { tags: SpecialTag[] }) {
+    return (
+        <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
+            {tags.map((tag) => (
+                <div key={tag} className="flex items-center gap-1.5">
+                    <TagIcon tag={tag} />
+                    <span>{tagIcons[tag].label}</span>
+                </div>
+            ))}
+        </div>
     )
 }
 
@@ -55,6 +69,10 @@ const songVariants: Variants = {
 // Full album page: header plus the longer fields (review, listens, tracklist)
 export default function AlbumDetails({album}: {album: Album}) {
     const { metadata, review } = album
+    // Tags used anywhere on this album, in tagIcons order
+    const usedTags = (Object.keys(tagIcons) as SpecialTag[]).filter((tag) =>
+        Object.values(album.songTags ?? {}).some((tags) => tags.includes(tag))
+    )
     return (
         <MotionConfig reducedMotion="user">
         <motion.div className="flex flex-col gap-4" variants={pageVariants} initial="hidden" animate="visible">
@@ -65,6 +83,11 @@ export default function AlbumDetails({album}: {album: Album}) {
             {album.listens !== undefined && <motion.p variants={sectionVariants}>Listens: {album.listens}</motion.p>}
             {metadata && (
                 <motion.div variants={tracklistVariants}>
+                    {usedTags.length > 0 && (
+                        <motion.div variants={songVariants} className="mb-2">
+                            <TagKey tags={usedTags} />
+                        </motion.div>
+                    )}
                     {metadata.songs.map((song, idx) => {
                         const tags = album.songTags?.[song.title] ?? []
                         return (
