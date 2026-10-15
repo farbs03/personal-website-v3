@@ -1,23 +1,33 @@
-export type AlbumInfo = {
-    // path to the album cover image
-    albumCover: string,
-    // album metadata
+// initial, hand-written info for an album - title and artist get fed into api
+export type AlbumEntry = {
     title: string,
     artist: string,
-    year: number,
-    genre: string,
-    // songs
-    songs: SongInfo[]
-    // custom review info
-    rating: number,
-    review?: string,
-    dateReviewed: Date,
-    listens?: number // is there a way to use the apple music api?
+    review?: ReviewInfo,
+    listens?: number,
+    songTags?: Record<string, SpecialTag[]>,
+    apiId?: string, // pins the exact release if a search guesses wrong
+    colors?: [string, string], // hand-picked from the album cover, used for the rating star gradient
 }
 
-export type SongInfo = {
-    title: string,
-    specialTag?: SpecialTag
+export type ReviewInfo = {
+    rating: number,
+    review: string,
+    dateReviewed: Date,
 }
 
 export type SpecialTag = "favorite" | "underrated" | "most-popular"
+
+// fetched by api
+export type AlbumMetadata = {
+    // album metadata
+    albumCover: string,
+    year: number,
+    genre: string,
+    songs:  { title: string, durationMs?: number }[]
+}
+
+export type AlbumMetadataFile = Record<string, AlbumMetadata> // for loading in the metadata json
+
+// displayed
+export type Album = AlbumEntry & { metadata?: AlbumMetadata }
+

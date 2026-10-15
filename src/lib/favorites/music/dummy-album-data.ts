@@ -1,20 +1,28 @@
-import type { AlbumInfo } from "@/types/favorites/music/music-types";
+import type { Album } from "@/types/favorites/music/music-types";
 
-const DummyAlbums: AlbumInfo[] = [
+export const DummyAlbums: Album[] = [
     {
-        albumCover: "",
         title: "Heaven or Las Vegas",
         artist: "Cocteau Twins",
-        year: 1990,
-        genre: "Dream Pop",
-        songs: [
-            {
-                title: "Cherry-Colored Funk"
-            }
-        ],
-        rating: 5,
-        review: "Ethereal",
-        dateReviewed: new Date(),
+        songTags: {
+            "Cherry-Coloured Funk": ["favorite", "most-popular", "underrated"]
+        },
+        metadata: {
+            albumCover: "https://r2.theaudiodb.com/images/media/album/thumb/u0dk791605684866.jpg",
+            year: 1990,
+            genre: "Dream Pop",
+            songs: [
+                {
+                    title: "Cherry-Coloured Funk",
+                    durationMs: 200000
+                }
+            ],
+        },
+        review: {
+            rating: 5,
+            review: "Ethereal",
+            dateReviewed: new Date(),
+        },
         listens: 100,
     }
 ]

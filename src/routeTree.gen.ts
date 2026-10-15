@@ -13,6 +13,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as FavoritesRouteImport } from './routes/favorites'
 import { Route as LifeRouteImport } from './routes/life'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as FavoritesIndexRouteImport } from './routes/favorites/index'
+import { Route as FavoritesMoviesRouteImport } from './routes/favorites/movies'
+import { Route as FavoritesShowsRouteImport } from './routes/favorites/shows'
+import { Route as FavoritesMusicIndexRouteImport } from './routes/favorites/music/index'
+import { Route as FavoritesMusicAlbumSlugRouteImport } from './routes/favorites/music/$albumSlug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,37 +39,103 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FavoritesIndexRoute = FavoritesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FavoritesRoute,
+} as any)
+const FavoritesMoviesRoute = FavoritesMoviesRouteImport.update({
+  id: '/movies',
+  path: '/movies',
+  getParentRoute: () => FavoritesRoute,
+} as any)
+const FavoritesShowsRoute = FavoritesShowsRouteImport.update({
+  id: '/shows',
+  path: '/shows',
+  getParentRoute: () => FavoritesRoute,
+} as any)
+const FavoritesMusicIndexRoute = FavoritesMusicIndexRouteImport.update({
+  id: '/music/',
+  path: '/music/',
+  getParentRoute: () => FavoritesRoute,
+} as any)
+const FavoritesMusicAlbumSlugRoute = FavoritesMusicAlbumSlugRouteImport.update({
+  id: '/music/$albumSlug',
+  path: '/music/$albumSlug',
+  getParentRoute: () => FavoritesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/favorites': typeof FavoritesRoute
+  '/favorites': typeof FavoritesRouteWithChildren
   '/life': typeof LifeRoute
   '/projects': typeof ProjectsRoute
+  '/favorites/movies': typeof FavoritesMoviesRoute
+  '/favorites/shows': typeof FavoritesShowsRoute
+  '/favorites/': typeof FavoritesIndexRoute
+  '/favorites/music/$albumSlug': typeof FavoritesMusicAlbumSlugRoute
+  '/favorites/music/': typeof FavoritesMusicIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/favorites': typeof FavoritesRoute
   '/life': typeof LifeRoute
   '/projects': typeof ProjectsRoute
+  '/favorites/movies': typeof FavoritesMoviesRoute
+  '/favorites/shows': typeof FavoritesShowsRoute
+  '/favorites': typeof FavoritesIndexRoute
+  '/favorites/music/$albumSlug': typeof FavoritesMusicAlbumSlugRoute
+  '/favorites/music': typeof FavoritesMusicIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/favorites': typeof FavoritesRoute
+  '/favorites': typeof FavoritesRouteWithChildren
   '/life': typeof LifeRoute
   '/projects': typeof ProjectsRoute
+  '/favorites/movies': typeof FavoritesMoviesRoute
+  '/favorites/shows': typeof FavoritesShowsRoute
+  '/favorites/': typeof FavoritesIndexRoute
+  '/favorites/music/$albumSlug': typeof FavoritesMusicAlbumSlugRoute
+  '/favorites/music/': typeof FavoritesMusicIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/favorites' | '/life' | '/projects'
+  fullPaths:
+    | '/'
+    | '/favorites'
+    | '/life'
+    | '/projects'
+    | '/favorites/movies'
+    | '/favorites/shows'
+    | '/favorites/'
+    | '/favorites/music/$albumSlug'
+    | '/favorites/music/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/favorites' | '/life' | '/projects'
-  id: '__root__' | '/' | '/favorites' | '/life' | '/projects'
+  to:
+    | '/'
+    | '/life'
+    | '/projects'
+    | '/favorites/movies'
+    | '/favorites/shows'
+    | '/favorites'
+    | '/favorites/music/$albumSlug'
+    | '/favorites/music'
+  id:
+    | '__root__'
+    | '/'
+    | '/favorites'
+    | '/life'
+    | '/projects'
+    | '/favorites/movies'
+    | '/favorites/shows'
+    | '/favorites/'
+    | '/favorites/music/$albumSlug'
+    | '/favorites/music/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  FavoritesRoute: typeof FavoritesRoute
+  FavoritesRoute: typeof FavoritesRouteWithChildren
   LifeRoute: typeof LifeRoute
   ProjectsRoute: typeof ProjectsRoute
 }
@@ -99,12 +170,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/favorites/': {
+      id: '/favorites/'
+      path: '/'
+      fullPath: '/favorites/'
+      preLoaderRoute: typeof FavoritesIndexRouteImport
+      parentRoute: typeof FavoritesRoute
+    }
+    '/favorites/movies': {
+      id: '/favorites/movies'
+      path: '/movies'
+      fullPath: '/favorites/movies'
+      preLoaderRoute: typeof FavoritesMoviesRouteImport
+      parentRoute: typeof FavoritesRoute
+    }
+    '/favorites/shows': {
+      id: '/favorites/shows'
+      path: '/shows'
+      fullPath: '/favorites/shows'
+      preLoaderRoute: typeof FavoritesShowsRouteImport
+      parentRoute: typeof FavoritesRoute
+    }
+    '/favorites/music/': {
+      id: '/favorites/music/'
+      path: '/music'
+      fullPath: '/favorites/music/'
+      preLoaderRoute: typeof FavoritesMusicIndexRouteImport
+      parentRoute: typeof FavoritesRoute
+    }
+    '/favorites/music/$albumSlug': {
+      id: '/favorites/music/$albumSlug'
+      path: '/music/$albumSlug'
+      fullPath: '/favorites/music/$albumSlug'
+      preLoaderRoute: typeof FavoritesMusicAlbumSlugRouteImport
+      parentRoute: typeof FavoritesRoute
+    }
   }
 }
 
+interface FavoritesRouteChildren {
+  FavoritesMoviesRoute: typeof FavoritesMoviesRoute
+  FavoritesShowsRoute: typeof FavoritesShowsRoute
+  FavoritesIndexRoute: typeof FavoritesIndexRoute
+  FavoritesMusicAlbumSlugRoute: typeof FavoritesMusicAlbumSlugRoute
+  FavoritesMusicIndexRoute: typeof FavoritesMusicIndexRoute
+}
+
+const FavoritesRouteChildren: FavoritesRouteChildren = {
+  FavoritesMoviesRoute: FavoritesMoviesRoute,
+  FavoritesShowsRoute: FavoritesShowsRoute,
+  FavoritesIndexRoute: FavoritesIndexRoute,
+  FavoritesMusicAlbumSlugRoute: FavoritesMusicAlbumSlugRoute,
+  FavoritesMusicIndexRoute: FavoritesMusicIndexRoute,
+}
+
+const FavoritesRouteWithChildren = FavoritesRoute._addFileChildren(
+  FavoritesRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  FavoritesRoute: FavoritesRoute,
+  FavoritesRoute: FavoritesRouteWithChildren,
   LifeRoute: LifeRoute,
   ProjectsRoute: ProjectsRoute,
 }
