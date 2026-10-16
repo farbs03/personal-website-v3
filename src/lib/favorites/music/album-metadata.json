@@ -1512,5 +1512,68 @@
       "#4a3b38",
       "#f0bca1"
     ]
+  },
+  "kanye west::my beautiful dark twisted fantasy": {
+    "albumCover": "https://r2.theaudiodb.com/images/media/album/thumb/0tdanw1609142911.jpg",
+    "year": 2010,
+    "genre": "Hip-Hop",
+    "songs": [
+      {
+        "title": "Dark Fantasy",
+        "durationMs": 282866
+      },
+      {
+        "title": "Gorgeous",
+        "durationMs": 359733
+      },
+      {
+        "title": "Power",
+        "durationMs": 294173
+      },
+      {
+        "title": "All of the Lights (interlude)",
+        "durationMs": 64346
+      },
+      {
+        "title": "All of the Lights",
+        "durationMs": 301853
+      },
+      {
+        "title": "Monster",
+        "durationMs": 380893
+      },
+      {
+        "title": "So Appalled",
+        "durationMs": 400280
+      },
+      {
+        "title": "Devil in a New Dress",
+        "durationMs": 354613
+      },
+      {
+        "title": "Runaway",
+        "durationMs": 550173
+      },
+      {
+        "title": "Hell of a Life",
+        "durationMs": 329933
+      },
+      {
+        "title": "Blame Game",
+        "durationMs": 471933
+      },
+      {
+        "title": "Lost in the World",
+        "durationMs": 258666
+      },
+      {
+        "title": "Who Will Survive in America",
+        "durationMs": 98293
+      }
+    ],
+    "colors": [
+      "#476da1",
+      "#cc1e34"
+    ]
   }
 }

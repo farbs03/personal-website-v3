@@ -16,7 +16,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "Ethereal",
+            review: "ouuu roouuuddaaa",
             dateReviewed: new Date()
         }
     },
@@ -36,7 +36,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "Ethereal",
+            review: "damn man, play that thing",
             dateReviewed: new Date()
         }
     },
@@ -57,7 +57,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "Beautiful",
+            review: "you can feel it all overrrrr",
             dateReviewed: new Date()
         }
     },
@@ -66,7 +66,7 @@ export const albumList: AlbumEntry[] = [
         artist: "Kendrick Lamar",
         review: {
             rating: 8,
-            review: "We got eighty-HD",
+            review: "we got eighty-HD",
             dateReviewed: new Date()
         }
     },
@@ -87,7 +87,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "Huge",
+            review: "bich don't kill my vibe",
             dateReviewed: new Date()
         }
     },
@@ -107,7 +107,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "Amazing",
+            review: "cause i (want youuuuu)",
             dateReviewed: new Date()
         },
     },
@@ -119,7 +119,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 8,
-            review: "untitled",
+            review: "walking around with them... blue faces",
             dateReviewed: new Date()
         }
     },
@@ -163,7 +163,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "Woah",
+            review: "in a past lifeeee",
             dateReviewed: new Date()
         }
     },
@@ -181,7 +181,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "I'm crying",
+            review: "telllll himmmm it'll be alright",
             dateReviewed: new Date()
         }
     },
@@ -199,7 +199,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "Holy",
+            review: "my name is giovanni giorgio, but most people call me giorgio",
             dateReviewed: new Date()
         }
     },
@@ -219,7 +219,7 @@ export const albumList: AlbumEntry[] = [
         },
         review: {
             rating: 10,
-            review: "Wow",
+            review: "ONE. MORE. TIMEEEE",
             dateReviewed: new Date()
         }
     },
@@ -228,7 +228,7 @@ export const albumList: AlbumEntry[] = [
         artist: "Nujabes",
         review: {
             rating: 8,
-            review: "Waow",
+            review: "it's funny how the music put times in perspective",
             dateReviewed: new Date()
         }
     },
@@ -237,7 +237,7 @@ export const albumList: AlbumEntry[] = [
         artist: "Nujabes",
         review: {
             rating: 8,
-            review: "Chill",
+            review: "snowflakes in january, heartwarm like february",
             dateReviewed: new Date()
         }
 
@@ -247,7 +247,7 @@ export const albumList: AlbumEntry[] = [
         artist: "Nujabes",
         review: {
             rating: 9,
-            review: "Spiritual",
+            review: "Yes",
             dateReviewed: new Date()
         }
     },
@@ -256,7 +256,7 @@ export const albumList: AlbumEntry[] = [
         artist: "Big K.R.I.T.",
         review: {
             rating: 9,
-            review: "24/7 like a waffle cook, in a waffle house kitchen",
+            review: "it's 24/7 like a waffle cook, in a waffle house kitchen",
             dateReviewed: new Date()
         }
     },
@@ -288,6 +288,15 @@ export const albumList: AlbumEntry[] = [
         }
     },
     {
+        title: "My Beautiful Dark Twisted Fantasy",
+        artist: "Kanye West",
+        review: {
+            rating: 9,
+            review: "CAN WE GET MUCH HIGHERRR??",
+            dateReviewed: new Date()
+        }
+    },
+    {
         title: "Popstar",
         artist: "Tinashe",
         review: {
@@ -295,5 +304,5 @@ export const albumList: AlbumEntry[] = [
             review: "i wanna tustle, i wanna wrustle",
             dateReviewed: new Date()
         }
-    }
+    },
 ]
