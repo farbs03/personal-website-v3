@@ -14,7 +14,7 @@ export type AlbumEntry = {
 export type ReviewInfo = {
     rating: number,
     review: string,
-    dateReviewed: Date,
+    dateListened: Date,
 }
 
 export type SpecialTag = "favorite" | "love" | "underrated" | "most-popular"

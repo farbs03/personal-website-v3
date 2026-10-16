@@ -6,6 +6,7 @@ export const albumList: AlbumEntry[] = [
         title: "Heaven or Las Vegas",
         artist: "Cocteau Twins",
         onVinyl: true,
+        top10: true,
         colors: ["#3346b8", "#e8302a"],
         songTags: {
             "Iceblink Luck": ["love"],
@@ -18,13 +19,14 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "ouuu roouuuddaaa",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
         title: "Imaginal Disk",
         artist: "Magdalena Bay",
         onVinyl: true,
+        top10: true,
         songTags: {
             "Image": ["most-popular", "love"],
             "Death & Romance": ["love"],
@@ -39,13 +41,14 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "damn man, play that thing",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
         title: "Songs in the Key of Life",
         artist: "Stevie Wonder",
         onVinyl: true,
+        top10: true,
         songTags: {
             "Love's in Need of Love Today": ["love"],
             "Sir Duke": ["love"],
@@ -61,7 +64,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "you can feel it all overrrrr",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -71,13 +74,14 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 8,
             review: "we got eighty-HD",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
         title: "good kid, m.A.A.d city",
         artist: "Kendrick Lamar",
         onVinyl: true,
+        top10: true,
         songTags: {
             "Bitch, Don't Kill My Vibe": ["love"],
             "Backseat Freestyle": ["love"],
@@ -93,13 +97,14 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "bich don't kill my vibe",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
         title: "To Pimp a Butterfly",
         artist: "Kendrick Lamar",
         onVinyl: true,
+        top10: true,
         songTags: {
             "Wesley's Theory": ["favorite", "underrated", "love"],
             "King Kunta": ["love"],
@@ -114,7 +119,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "cause i (want youuuuu)",
-            dateReviewed: new Date()
+            dateListened: new Date()
         },
     },
     {
@@ -127,7 +132,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 8,
             review: "walking around with them... blue faces",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -140,7 +145,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 8,
             review: "Damn",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -153,7 +158,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 9,
             review: "bing bop boom boom boom bop bam",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -174,7 +179,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "in a past lifeeee",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -193,7 +198,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "telllll himmmm it'll be alright",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -212,7 +217,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "my name is giovanni giorgio, but most people call me giorgio",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -233,7 +238,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 10,
             review: "ONE. MORE. TIMEEEE",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -243,7 +248,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 8,
             review: "it's funny how the music put times in perspective",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -253,7 +258,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 8,
             review: "snowflakes in january, heartwarm like february",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
 
     },
@@ -264,7 +269,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 9,
             review: "Yes",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -274,7 +279,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 9,
             review: "it's 24/7 like a waffle cook, in a waffle house kitchen",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -284,7 +289,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 9,
             review: "brat",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -294,7 +299,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 9,
             review: "mayonaise-colored benz, I push miracle whips",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -304,7 +309,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 9,
             review: "chi city",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -314,7 +319,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 9,
             review: "CAN WE GET MUCH HIGHERRR??",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
     {
@@ -324,7 +329,7 @@ export const albumList: AlbumEntry[] = [
         review: {
             rating: 9,
             review: "i wanna tustle, i wanna wrustle",
-            dateReviewed: new Date()
+            dateListened: new Date()
         }
     },
 ]

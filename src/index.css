@@ -118,6 +118,18 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);}
 
+/* Highlight band sweeping across a top-10 album's stars (see star-rating.tsx); pauses between sweeps */
+@keyframes star-shimmer {
+  0% { transform: translateX(0); }
+  60%, 100% { transform: translateX(var(--shimmer-distance)); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .star-shimmer {
+    animation: star-shimmer 3s ease-in-out infinite;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;}

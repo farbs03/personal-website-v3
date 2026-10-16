@@ -45,6 +45,9 @@ export function sortAlbums(albums: Album[], sort: SortKey, dir: SortDir): Album[
             if (av !== bv) return av === undefined ? 1 : -1
         } else if (av !== bv) {
             return (av - bv) * sign
+        } else if (sort === "rating" && !!a.top10 !== !!b.top10) {
+            // Same rating: a top 10 album counts as the higher one
+            return (a.top10 ? 1 : -1) * sign
         }
         return a.title.localeCompare(b.title)
     })

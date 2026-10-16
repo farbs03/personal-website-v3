@@ -71,6 +71,8 @@ function RouteComponent() {
   return (
     // reducedMotion="user": skips the movement for visitors with "reduce motion" turned on
     <MotionConfig reducedMotion='user'>
+      <p className='text-2xl font-bold'>Favorite Albums</p>
+      <p className='text-neutral-800'>Browse my favorite albums and reviews of them!</p>
       <div className='flex flex-col gap-6'>
         <AlbumToolbar
           query={query}
@@ -104,7 +106,7 @@ function RouteComponent() {
                   // Children inherit the "hidden" -> "visible" state from the grid, so they only need variants.
                   // layout: animates to the new spot when sorting/filtering moves it
                   <motion.div key={slug} layout variants={albumVariants} exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.2 } }}>
-                    <Link to='/favorites/music/$albumSlug' params={{ albumSlug: slug }} className='group block hover:bg-slate-100 transition duration-200 ease-in rounded-xl'>
+                    <Link to='/favorites/music/$albumSlug' params={{ albumSlug: slug }} className='group block hover:bg-neutral-100 transition duration-200 ease-in rounded-xl'>
                       <AlbumHeader album={album} />
                     </Link>
                   </motion.div>

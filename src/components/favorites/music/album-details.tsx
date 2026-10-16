@@ -93,18 +93,18 @@ export default function AlbumDetails({album}: {album: Album}) {
                         {metadata.songs.map((song, idx) => {
                             const tags = album.songTags?.[song.title] ?? []
                             return (
-                                <motion.div key={song.title} variants={songVariants} className="flex justify-between items-center gap-4 hover:bg-neutral-100">
+                                <motion.div key={song.title} variants={songVariants} className={`flex justify-between items-center gap-4 ${idx % 2 == 0 ? "bg-white" : "bg-neutral-100"}`}>
                                     <p>{idx + 1}. {song.title}</p>
                                     <div className="flex items-center gap-3 shrink-0">
                                         {/* One fixed column per tag, so each tag's icon lines up down the tracklist */}
-                                        <div className="grid grid-cols-4 gap-1">
+                                        <div className="flex justify-end gap-1">
                                             {tags.map((tag) => (
                                                 <span key={tag} className="w-4 h-4">
                                                 <TagIcon tag={tag} />
                                                 </span>
                                             ))}
                                         </div>
-                                        {song.durationMs !== undefined && <p className="tabular-nums">{formatDuration(song.durationMs)}</p>}
+                                        {song.durationMs !== undefined && <p className="tabular-nums w-[5ch]">{formatDuration(song.durationMs)}</p>}
                                     </div>
                                 </motion.div>
                             )

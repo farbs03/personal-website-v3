@@ -1,4 +1,4 @@
-import { useId } from "react";
+import { useId, type CSSProperties } from "react";
 
 // Lucide's star shape (24x24), drawn by hand so all 5 stars can share one SVG and one gradient
 const STAR_PATH = "M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
@@ -6,13 +6,16 @@ const STAR = 24
 const GAP = 2
 const WIDTH = STAR * 5 + GAP * 4
 const DEFAULT_COLORS: [string, string] = ["var(--color-sunset)", "var(--color-sunset)"]
+const SHINE = 16 // width of the shimmer's highlight band
 
 // Shows a 1-10 rating as 5 stars, where each point is half a star.
 // Empty outlines are drawn underneath; filled stars are drawn on top and clipped to the rating.
 // The fill is a single gradient spanning the whole row, so colors flow across stars.
-export default function StarRating({ rating, colors = DEFAULT_COLORS, className = "h-5" }: {
+// `shimmer` sweeps a highlight band across the filled stars on a loop.
+export default function StarRating({ rating, colors = DEFAULT_COLORS, shimmer = false, className = "h-5" }: {
     rating: number,
     colors?: [string, string],
+    shimmer?: boolean,
     className?: string,
 }) {
     const id = useId()
@@ -43,6 +46,18 @@ export default function StarRating({ rating, colors = DEFAULT_COLORS, className 
                         {stars}
                     </g>
                 </mask>
+                {shimmer && (
+                    <>
+                        <linearGradient id={`${id}-shine`}>
+                            <stop offset="0%" stopColor="white" stopOpacity={0} />
+                            <stop offset="50%" stopColor="white" stopOpacity={0.7} />
+                            <stop offset="100%" stopColor="white" stopOpacity={0} />
+                        </linearGradient>
+                        <clipPath id={`${id}-clip`}>
+                            <rect x={0} y={0} width={clipWidth} height={STAR} />
+                        </clipPath>
+                    </>
+                )}
             </defs>
 
             {/* Empty outlines */}
@@ -57,6 +72,19 @@ export default function StarRating({ rating, colors = DEFAULT_COLORS, className 
                 fill={`url(#${id}-grad)`}
                 mask={`url(#${id}-mask)`}
             />
+
+            {/* Shimmer: a highlight band that starts off the left edge and slides across, masked to the
+                star shapes and clipped to the filled part so empty stars stay dull */}
+            {shimmer && (
+                <g mask={`url(#${id}-mask)`} clipPath={`url(#${id}-clip)`}>
+                    <rect
+                        x={-SHINE} y={0} width={SHINE} height={STAR}
+                        fill={`url(#${id}-shine)`}
+                        className="star-shimmer"
+                        style={{ "--shimmer-distance": `${WIDTH + SHINE}px` } as CSSProperties}
+                    />
+                </g>
+            )}
         </svg>
     )
 }
