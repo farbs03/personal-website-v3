@@ -1,14 +1,14 @@
 import type { Album } from "@/types/favorites/music/music-types";
 import { normalize } from "./album-key";
 
-export const sortKeys = ["rating", "released", "reviewed"] as const
+export const sortKeys = ["rating", "released", "listened"] as const
 export type SortKey = (typeof sortKeys)[number]
 export type SortDir = "asc" | "desc"
 
 export const sortLabels: Record<SortKey, string> = {
     rating: "Rating",
     released: "Release date",
-    reviewed: "Reviewed date",
+    listened: "Listened Date",
 }
 
 export type AlbumFilters = {
@@ -32,7 +32,7 @@ export function filterAlbums(albums: Album[], { q, artists, genres, vinyl }: Alb
 const sortValue: Record<SortKey, (album: Album) => number | undefined> = {
     rating: (album) => album.review?.rating,
     released: (album) => album.metadata?.year,
-    reviewed: (album) => album.review?.dateReviewed.getTime(),
+    listened: (album) => album.review?.dateListened.getTime(),
 }
 
 // Albums missing the sort value (no review / no metadata) always go last, whichever direction
