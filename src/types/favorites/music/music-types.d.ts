@@ -3,6 +3,7 @@ export type AlbumEntry = {
     title: string,
     artist: string,
     onVinyl?: boolean
+    top10?: boolean // makes cool shimmer and spinny animations on the stars/disc; breaks ties in sorting by rating (higher priority)
     review?: ReviewInfo,
     listens?: number,
     songTags?: Record<string, SpecialTag[]>,
