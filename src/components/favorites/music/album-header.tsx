@@ -1,5 +1,6 @@
 import type { Album } from "@/types/favorites/music/music-types";
 import StarRating from "./star-rating";
+import { Disc3 } from "lucide-react";
 
 // Cover + summary info. Shown on its own in the album list, and at the top of an album's page.
 export default function AlbumHeader({album}: {album: Album}) {
@@ -27,7 +28,10 @@ export default function AlbumHeader({album}: {album: Album}) {
                 </div>
                 {review && (
                     <div className="mt-auto">
-                        <StarRating rating={review.rating} colors={album.colors ?? metadata?.colors} />
+                        <div className="flex items-center gap-4">
+                            <StarRating rating={review.rating} colors={album.colors ?? metadata?.colors} />
+                            {album.onVinyl && <Disc3 />}
+                        </div>
                         <p>Reviewed: {review.dateReviewed.toLocaleDateString()}</p>
                     </div>
                 )}

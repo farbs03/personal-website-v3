@@ -2,6 +2,7 @@
 export type AlbumEntry = {
     title: string,
     artist: string,
+    onVinyl?: boolean
     review?: ReviewInfo,
     listens?: number,
     songTags?: Record<string, SpecialTag[]>,

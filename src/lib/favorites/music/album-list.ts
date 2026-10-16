@@ -5,6 +5,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Heaven or Las Vegas",
         artist: "Cocteau Twins",
+        onVinyl: true,
         colors: ["#3346b8", "#e8302a"],
         songTags: {
             "Iceblink Luck": ["love"],
@@ -23,6 +24,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Imaginal Disk",
         artist: "Magdalena Bay",
+        onVinyl: true,
         songTags: {
             "Image": ["most-popular", "love"],
             "Death & Romance": ["love"],
@@ -43,6 +45,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Songs in the Key of Life",
         artist: "Stevie Wonder",
+        onVinyl: true,
         songTags: {
             "Love's in Need of Love Today": ["love"],
             "Sir Duke": ["love"],
@@ -64,6 +67,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Section.80",
         artist: "Kendrick Lamar",
+        onVinyl: false,
         review: {
             rating: 8,
             review: "we got eighty-HD",
@@ -73,6 +77,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "good kid, m.A.A.d city",
         artist: "Kendrick Lamar",
+        onVinyl: true,
         songTags: {
             "Bitch, Don't Kill My Vibe": ["love"],
             "Backseat Freestyle": ["love"],
@@ -94,6 +99,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "To Pimp a Butterfly",
         artist: "Kendrick Lamar",
+        onVinyl: true,
         songTags: {
             "Wesley's Theory": ["favorite", "underrated", "love"],
             "King Kunta": ["love"],
@@ -114,6 +120,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "untitled unmastered.",
         artist: "Kendrick Lamar",
+        onVinyl: false,
         songTags: {
 
         },
@@ -126,6 +133,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "DAMN.",
         artist: "Kendrick Lamar",
+        onVinyl: true,
         songTags: {
 
         },
@@ -138,6 +146,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "GNX",
         artist: "Kendrick Lamar",
+        onVinyl: false,
         songTags: {
 
         },
@@ -150,6 +159,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Currents",
         artist: "Tame Impala",
+        onVinyl: false,
         songTags: {
             "Let It Happen": ["love"],
             "Nangs": ["love"],
@@ -170,6 +180,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "The Miseducation of Lauryn Hill",
         artist: "Lauryn Hill",
+        onVinyl: false,
         songTags: {
             "Ex-Factor": ["most-popular", "love"],
             "Doo Wop (That Thing)": ["love"],
@@ -188,6 +199,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Random Access Memories",
         artist: "Daft Punk",
+        onVinyl: false,
         songTags: {
             "Give Life Back to Music": ["love"],
             "Giorgio by Moroder": ["love"],
@@ -206,6 +218,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Discovery",
         artist: "Daft Punk",
+        onVinyl: false,
         songTags: {
             "One More Time": ["favorite", "most-popular", "love"],
             "Aerodynamic": ["love"],
@@ -226,6 +239,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Modal Soul",
         artist: "Nujabes",
+        onVinyl: true,
         review: {
             rating: 8,
             review: "it's funny how the music put times in perspective",
@@ -235,6 +249,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Luv(sic) Hexalogy",        
         artist: "Nujabes",
+        onVinyl: false,
         review: {
             rating: 8,
             review: "snowflakes in january, heartwarm like february",
@@ -245,6 +260,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Spiritual State",
         artist: "Nujabes",
+        onVinyl: false,
         review: {
             rating: 9,
             review: "Yes",
@@ -254,6 +270,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "4eva Is a Mighty Long Time",
         artist: "Big K.R.I.T.",
+        onVinyl: false,
         review: {
             rating: 9,
             review: "it's 24/7 like a waffle cook, in a waffle house kitchen",
@@ -263,6 +280,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "BRAT",
         artist: "Charli xcx",
+        onVinyl: false,
         review: {
             rating: 9,
             review: "brat",
@@ -272,6 +290,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "The College Dropout",
         artist: "Kanye West",
+        onVinyl: false,
         review: {
             rating: 9,
             review: "mayonaise-colored benz, I push miracle whips",
@@ -281,6 +300,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Graduation",
         artist: "Kanye West",
+        onVinyl: false,
         review: {
             rating: 9,
             review: "chi city",
@@ -290,6 +310,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "My Beautiful Dark Twisted Fantasy",
         artist: "Kanye West",
+        onVinyl: false,
         review: {
             rating: 9,
             review: "CAN WE GET MUCH HIGHERRR??",
@@ -299,6 +320,7 @@ export const albumList: AlbumEntry[] = [
     {
         title: "Popstar",
         artist: "Tinashe",
+        onVinyl: false,
         review: {
             rating: 9,
             review: "i wanna tustle, i wanna wrustle",
