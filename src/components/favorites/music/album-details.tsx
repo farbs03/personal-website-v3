@@ -75,7 +75,7 @@ export default function AlbumDetails({album}: {album: Album}) {
     )
     return (
         <MotionConfig reducedMotion="user">
-        <motion.div className="flex flex-col gap-4" variants={pageVariants} initial="hidden" animate="visible">
+        <motion.div className="flex flex-col gap-4 w-1/2" variants={pageVariants} initial="hidden" animate="visible">
             <motion.div variants={sectionVariants}>
                 <AlbumHeader album={album} />
             </motion.div>
@@ -83,30 +83,33 @@ export default function AlbumDetails({album}: {album: Album}) {
             {album.listens !== undefined && <motion.p variants={sectionVariants}>Listens: {album.listens}</motion.p>}
             {metadata && (
                 <motion.div variants={tracklistVariants}>
+                    <motion.p variants={songVariants} className="font-sans font-semibold mb-2">Tracklist</motion.p>
                     {usedTags.length > 0 && (
                         <motion.div variants={songVariants} className="mb-2">
                             <TagKey tags={usedTags} />
                         </motion.div>
                     )}
-                    {metadata.songs.map((song, idx) => {
-                        const tags = album.songTags?.[song.title] ?? []
-                        return (
-                            <motion.div key={song.title} variants={songVariants} className="flex justify-between items-center gap-4">
-                                <p>{idx + 1}. {song.title}</p>
-                                <div className="flex items-center gap-3 shrink-0">
-                                    {/* One fixed column per tag, so each tag's icon lines up down the tracklist */}
-                                    <div className="grid grid-cols-4 gap-1">
-                                        {tags.map((tag) => (
-                                            <span key={tag} className="w-4 h-4">
-                                              <TagIcon tag={tag} />
-                                            </span>
-                                        ))}
+                    <div className="flex flex-col gap-1">
+                        {metadata.songs.map((song, idx) => {
+                            const tags = album.songTags?.[song.title] ?? []
+                            return (
+                                <motion.div key={song.title} variants={songVariants} className="flex justify-between items-center gap-4 hover:bg-neutral-100">
+                                    <p>{idx + 1}. {song.title}</p>
+                                    <div className="flex items-center gap-3 shrink-0">
+                                        {/* One fixed column per tag, so each tag's icon lines up down the tracklist */}
+                                        <div className="grid grid-cols-4 gap-1">
+                                            {tags.map((tag) => (
+                                                <span key={tag} className="w-4 h-4">
+                                                <TagIcon tag={tag} />
+                                                </span>
+                                            ))}
+                                        </div>
+                                        {song.durationMs !== undefined && <p className="tabular-nums">{formatDuration(song.durationMs)}</p>}
                                     </div>
-                                    {song.durationMs !== undefined && <p className="tabular-nums">{formatDuration(song.durationMs)}</p>}
-                                </div>
-                            </motion.div>
-                        )
-                    })}
+                                </motion.div>
+                            )
+                        })}
+                    </div>
                 </motion.div>
             )}
         </motion.div>

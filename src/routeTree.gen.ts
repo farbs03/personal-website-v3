@@ -16,6 +16,7 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as FavoritesIndexRouteImport } from './routes/favorites/index'
 import { Route as FavoritesMoviesRouteImport } from './routes/favorites/movies'
 import { Route as FavoritesShowsRouteImport } from './routes/favorites/shows'
+import { Route as FavoritesVideoGamesRouteImport } from './routes/favorites/video-games'
 import { Route as FavoritesMusicIndexRouteImport } from './routes/favorites/music/index'
 import { Route as FavoritesMusicAlbumSlugRouteImport } from './routes/favorites/music/$albumSlug'
 
@@ -54,6 +55,11 @@ const FavoritesShowsRoute = FavoritesShowsRouteImport.update({
   path: '/shows',
   getParentRoute: () => FavoritesRoute,
 } as any)
+const FavoritesVideoGamesRoute = FavoritesVideoGamesRouteImport.update({
+  id: '/video-games',
+  path: '/video-games',
+  getParentRoute: () => FavoritesRoute,
+} as any)
 const FavoritesMusicIndexRoute = FavoritesMusicIndexRouteImport.update({
   id: '/music/',
   path: '/music/',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/projects': typeof ProjectsRoute
   '/favorites/movies': typeof FavoritesMoviesRoute
   '/favorites/shows': typeof FavoritesShowsRoute
+  '/favorites/video-games': typeof FavoritesVideoGamesRoute
   '/favorites/': typeof FavoritesIndexRoute
   '/favorites/music/$albumSlug': typeof FavoritesMusicAlbumSlugRoute
   '/favorites/music/': typeof FavoritesMusicIndexRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/favorites/movies': typeof FavoritesMoviesRoute
   '/favorites/shows': typeof FavoritesShowsRoute
+  '/favorites/video-games': typeof FavoritesVideoGamesRoute
   '/favorites': typeof FavoritesIndexRoute
   '/favorites/music/$albumSlug': typeof FavoritesMusicAlbumSlugRoute
   '/favorites/music': typeof FavoritesMusicIndexRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/projects': typeof ProjectsRoute
   '/favorites/movies': typeof FavoritesMoviesRoute
   '/favorites/shows': typeof FavoritesShowsRoute
+  '/favorites/video-games': typeof FavoritesVideoGamesRoute
   '/favorites/': typeof FavoritesIndexRoute
   '/favorites/music/$albumSlug': typeof FavoritesMusicAlbumSlugRoute
   '/favorites/music/': typeof FavoritesMusicIndexRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/favorites/movies'
     | '/favorites/shows'
+    | '/favorites/video-games'
     | '/favorites/'
     | '/favorites/music/$albumSlug'
     | '/favorites/music/'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/favorites/movies'
     | '/favorites/shows'
+    | '/favorites/video-games'
     | '/favorites'
     | '/favorites/music/$albumSlug'
     | '/favorites/music'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/favorites/movies'
     | '/favorites/shows'
+    | '/favorites/video-games'
     | '/favorites/'
     | '/favorites/music/$albumSlug'
     | '/favorites/music/'
@@ -191,6 +203,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FavoritesShowsRouteImport
       parentRoute: typeof FavoritesRoute
     }
+    '/favorites/video-games': {
+      id: '/favorites/video-games'
+      path: '/video-games'
+      fullPath: '/favorites/video-games'
+      preLoaderRoute: typeof FavoritesVideoGamesRouteImport
+      parentRoute: typeof FavoritesRoute
+    }
     '/favorites/music/': {
       id: '/favorites/music/'
       path: '/music'
@@ -211,6 +230,7 @@ declare module '@tanstack/react-router' {
 interface FavoritesRouteChildren {
   FavoritesMoviesRoute: typeof FavoritesMoviesRoute
   FavoritesShowsRoute: typeof FavoritesShowsRoute
+  FavoritesVideoGamesRoute: typeof FavoritesVideoGamesRoute
   FavoritesIndexRoute: typeof FavoritesIndexRoute
   FavoritesMusicAlbumSlugRoute: typeof FavoritesMusicAlbumSlugRoute
   FavoritesMusicIndexRoute: typeof FavoritesMusicIndexRoute
@@ -219,6 +239,7 @@ interface FavoritesRouteChildren {
 const FavoritesRouteChildren: FavoritesRouteChildren = {
   FavoritesMoviesRoute: FavoritesMoviesRoute,
   FavoritesShowsRoute: FavoritesShowsRoute,
+  FavoritesVideoGamesRoute: FavoritesVideoGamesRoute,
   FavoritesIndexRoute: FavoritesIndexRoute,
   FavoritesMusicAlbumSlugRoute: FavoritesMusicAlbumSlugRoute,
   FavoritesMusicIndexRoute: FavoritesMusicIndexRoute,

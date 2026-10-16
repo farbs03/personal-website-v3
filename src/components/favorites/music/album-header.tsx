@@ -13,7 +13,7 @@ export default function AlbumHeader({album}: {album: Album}) {
                     <img
                         src={metadata.albumCover}
                         alt={`${album.title} cover`}
-                        className="w-40 h-40 rounded-sm transition duration-300 ease-out group-hover:-translate-x-1.5 group-hover:shadow-xl"
+                        className="w-40 h-40 rounded-sm transition duration-300 ease-out group-hover:-translate-y-1.5 group-hover:shadow-xl"
                     />
                 </div>
             )}

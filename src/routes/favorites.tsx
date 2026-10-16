@@ -8,6 +8,7 @@ const favoritesLinks = [
   { title: 'Music', path: '/favorites/music' },
   { title: 'Movies', path: '/favorites/movies' },
   { title: 'Shows', path: '/favorites/shows' },
+  { title: 'Video Games', path: '/favorites/video-games' },
 ] as const
 
 function RouteComponent() {
